@@ -1,0 +1,120 @@
+body {
+    background-image: url("images/rain2.jpg");
+    background-size: 100%;
+}
+
+/* SERACH BAR */
+
+.wrap{
+    width: 30%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    /* transform: translate(-50%, -50%); */
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    border: 7px solid rgba(185, 179, 179, 0.37);
+    border-radius: 22px;
+    display: flex;
+}
+
+  
+.searchBox {
+    float: left;
+    width: 90%;
+    border: 1px;
+    border-radius: 20px;
+    background-color:rgba(255,255,255, 0.37);
+    color: solid black;
+    padding: 5px;
+}
+
+.searchBox:focus{
+    color: black;
+}
+
+input[placeholder] {
+    color: black;
+    font-weight: bold;
+    padding-left: 10%;
+}
+
+.searchButton {
+    width: 9%;
+    border: 2px;
+    text-align: center;
+    background-color:  rgba(255, 255, 255, 0);
+}
+
+.searchButton img {
+    width: 100%;
+}
+
+/* CURRENT WEATHER */
+
+.current {
+    position: absolute;
+    top: 15%;
+    background-color: rgba(49, 46, 46, 0.527);
+    border-radius: 20px;
+    left: 30%;
+    right: 30%;
+    color: white;
+    text-align: center;
+}
+
+.current i {
+    font-size: 850%;
+}
+
+/* 5 DAYS */
+
+.forecast {
+    display: inline-block;
+    border: 10px;
+    width: 80%;
+    position: absolute;
+    top: 60%;
+    left: 5%;
+}
+
+.forecast div {
+    background-color: rgba(49, 46, 46, 0.527);
+    border-radius: 20px;
+    display: inline-block;
+    color: white;
+    margin-left: 1.5%;
+    text-align: center;
+}
+
+.forecast div i {
+    color: white;
+    font-size: 600%;
+}
+
+/* HOURLY */
+
+/* .hourly {
+    display: inline-block;
+} */
+
+.hourly {
+    position: absolute;
+    left: 75%;
+    top: 5%;
+}
+
+.hourly div{
+    /* display: inline-block; */
+    background-color: rgba(49, 46, 46, 0.527);
+    border-radius: 20px;
+    height: 10%;
+    width: 120%;
+    color: white;
+}
+.hourly p, i {
+    display: inline-block;
+}
