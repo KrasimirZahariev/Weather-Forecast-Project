@@ -20,7 +20,9 @@ $(document).ready(function() {
 function setCurrentDay(data) {
     var cityName = data.name;
     var country = data.sys.country;
+    var timestamp = data.dt;
     var weather = data.weather[0].main;
+    var weatherID = data.weather[0].id;
     var description = data.weather[0].description; 
     var temp = data.main.temp;
     var maxTemp = data.main.temp_max;
@@ -33,25 +35,47 @@ function setCurrentDay(data) {
     var sunrise = data.sys.sunrise;
     var sunset = data.sys.sunset;
 
+    setWeatherIcon(weatherID);
+
     $(".test").html(
         "City: " + cityName + "</br>" +
         "Country: " + country + "</br>" +
         "weather: " + weather + "</br>" +
+        "id:" + weatherID + "</br>" +
         "description: " + description + "</br>" +
         "temp: " + temp + "</br>" +
         "MaxTemp: " + maxTemp + "</br>" +
-        "minTemp: " + minTemp + "</br>"
+        "minTemp: " + minTemp + "</br>" +
+        "time: " + timeConversion(new Date(timestamp))+ "</br>" +
+        "sunrise: " + timeConversion(new Date(sunrise))+ "</br>"
     );
 }
 
+function setWeatherIcon(weatherID) {
+    var weatherIcon;
+    switch((weatherID.toString()).charAt(0)) {
+        case "2" : weatherIcon = "wi wi-thunderstorm";
+            break;
+        case "3" : weatherIcon = "wi wi-rain";
+            break;
+        case "5" : weatherIcon = "wi wi-rain";
+            break;
+        case "6" : weatherIcon = "wi wi-snow";
+            break;
+        case "7" : weatherIcon = "wi wi-dust";
+            break;
+        case "8" : weatherIcon = "wi wi-day-sunny";
+            break;
+    }
+    $(".current i").removeClass().addClass(weatherIcon);
 
-// data.weather[0].main
-// data.weather[0].descriptiondata.main.temp
-// data.main.pressure
-// data.main.humitidty
-// data.main.temp_min
-// data.main.temp_maxdata.wind.speed
-// data.wind.degdata.clouds.alldata.sys.country
-// data.sys.sunrise
-// data.sys.sunset
-// data.name
+}
+
+function timeConversion(timestamp) {
+    var date = new Date(timestamp*1000);
+    var hours = date.getHours();
+    var minutes = "0" + date.getMinutes();
+    var seconds = "0" + date.getSeconds();
+
+    return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+}
