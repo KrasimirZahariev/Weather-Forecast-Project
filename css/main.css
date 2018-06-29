@@ -58,18 +58,74 @@ input[placeholder] {
 
 .current {
     position: absolute;
-    top: 15%;
+    top: 13%;
     background-color: rgba(49, 46, 46, 0.527);
+    /* background-color: rgba(172, 158, 158, 0.2); */
     border-radius: 20px;
     left: 30%;
     right: 30%;
-    color: white;
-    text-align: center;
+    color: white; 
 }
 
-.current i {
-    font-size: 850%;
+.current div {
+    display: inline-block;
+    text-align: center;
+    
 }
+
+.location {
+    font-size: 25px;
+}
+
+.date {
+    margin-top: -5%;
+}
+
+.mainTemp {
+    font-size: 25px;
+    padding: 3%;
+}
+
+.mainDescr {
+    font-size: 18px;
+    margin-top: -12%;
+}
+
+.generalInfo {
+    width: 40%;
+}
+
+.generalInfo i {
+    font-size: 800%;
+}
+
+.line {
+    background-color: rgba(255, 255, 255, 0.185);
+    border-bottom: 1px rgba(255,255,255, 0);
+    border-radius: 10px; 
+    height: 80%;
+    width: 1%;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+}
+
+.details {
+    position: absolute;
+    width: 58%; 
+    left: 43%;
+    padding-top: 2%;
+}
+
+.details div {
+    display: block;
+}
+
+.details div p {
+    display: inline-block;
+    margin-right: 6%;
+}
+
 
 /* 5 DAYS */
 
@@ -78,7 +134,7 @@ input[placeholder] {
     border: 10px;
     width: 80%;
     position: absolute;
-    top: 60%;
+    top: 65%;
     left: 5%;
 }
 
