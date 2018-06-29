@@ -1,5 +1,6 @@
 body {
-    background-image: url("images/rain2.jpg");
+    background-image: url("images/night-cloudy.jpg");                     
+    background-repeat: no-repeat;
     background-size: 100%;
 }
 

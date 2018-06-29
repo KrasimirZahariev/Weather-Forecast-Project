@@ -61,36 +61,49 @@ function setWeatherIcon(weatherID, isDay) {
             weatherIcon = "wi wi-thunderstorm";
             $("body").css("background-image", "url(css/images/thunderstorm.jpg)");
             break;
-        case "3" : weatherIcon = "wi wi-rain";
+        case "3" : 
+            weatherIcon = "wi wi-rain";
+            $("body").css("background-image", "url(css/images/rain.jpg)");
             break;
-        case "5" : weatherIcon = "wi wi-rain";
+        case "5" : 
+            weatherIcon = "wi wi-rain";
+            $("body").css("background-image", "url(css/images/rain.jpg)");
             break;
-        case "6" : weatherIcon = "wi wi-snow";
+        case "6" : 
+            weatherIcon = "wi wi-snow";
+            $("body").css("background-image", "url(css/images/snow.jpg)");
             break;
-        case "7" : weatherIcon = "wi wi-dust";
+        case "7" : 
+            weatherIcon = "wi wi-dust";
+            $("body").css("background-image", "url(css/images/fog.jpg)");
             break;
         case "8" :
             if(isDay) {
                 if(weatherID.toString().charAt(2) == 0) {
                     weatherIcon = "wi wi-day-sunny";
+                    $("body").css("background-image", "url(css/images/sunny.jpg)");
                 } else if(weatherID.toString().charAt(2) == 1) {
                     weatherIcon = "wi wi-day-sunny-overcast";
+                    $("body").css("background-image", "url(css/images/sunny-overcast.jpg)");
                 } else {
                     weatherIcon = "wi wi-cloudy";
+                    $("body").css("background-image", "url(css/images/cloudy.jpg)");
                 }
             } else {
                 if(weatherID.toString().charAt(2) == 0) {
                     weatherIcon = "wi wi-night-clear";
+                    $("body").css("background-image", "url(css/images/night-clear.jpg)");
                 } else if(weatherID.toString().charAt(2) == 1) {
                     weatherIcon = "wi wi-night-partly-cloudy";
+                    $("body").css("background-image", "url(css/images/night-partly-cloudy.jpg)");
                 } else {
                     weatherIcon = "wi wi-cloudy";
+                    $("body").css("background-image", "url(css/images/night-cloudy.jpg)");
                 }    
             } 
             break;
     }
     $(".current i").removeClass().addClass(weatherIcon);
-    $("body").css("background-image", "url(css/images/thunderstorm.jpg)");
 }
 
 function isDayTime(timestamp, sunrise, sunset) {
