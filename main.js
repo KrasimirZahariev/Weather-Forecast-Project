@@ -35,7 +35,8 @@ function setCurrentDay(data) {
     var sunrise = data.sys.sunrise;
     var sunset = data.sys.sunset;
 
-    setWeatherIcon(weatherID);
+    var isDay = isDayTime(timestamp, sunrise, sunset);
+    setWeatherIcon(weatherID, isDay);
 
     $(".test").html(
         "City: " + cityName + "</br>" +
@@ -46,15 +47,19 @@ function setCurrentDay(data) {
         "temp: " + temp + "</br>" +
         "MaxTemp: " + maxTemp + "</br>" +
         "minTemp: " + minTemp + "</br>" +
-        "time: " + timeConversion(new Date(timestamp))+ "</br>" +
-        "sunrise: " + timeConversion(new Date(sunrise))+ "</br>"
+        "time: " + timeConversion(new Date(timestamp)) + "</br>" +
+        "sunrise: " + timeConversion(new Date(sunrise)) + "</br>" +
+        "sunset: " + timeConversion(new Date(sunset)) + "</br>" +
+        "isDay:" + isDayTime(timestamp, sunrise, sunset) + "</br>"
     );
-}
+}   
 
-function setWeatherIcon(weatherID) {
+function setWeatherIcon(weatherID, isDay) {
     var weatherIcon;
     switch((weatherID.toString()).charAt(0)) {
-        case "2" : weatherIcon = "wi wi-thunderstorm";
+        case "2" : 
+            weatherIcon = "wi wi-thunderstorm";
+            $("body").css("background-image", "url(css/images/thunderstorm.jpg)");
             break;
         case "3" : weatherIcon = "wi wi-rain";
             break;
@@ -64,18 +69,42 @@ function setWeatherIcon(weatherID) {
             break;
         case "7" : weatherIcon = "wi wi-dust";
             break;
-        case "8" : weatherIcon = "wi wi-day-sunny";
+        case "8" :
+            if(isDay) {
+                if(weatherID.toString().charAt(2) == 0) {
+                    weatherIcon = "wi wi-day-sunny";
+                } else if(weatherID.toString().charAt(2) == 1) {
+                    weatherIcon = "wi wi-day-sunny-overcast";
+                } else {
+                    weatherIcon = "wi wi-cloudy";
+                }
+            } else {
+                if(weatherID.toString().charAt(2) == 0) {
+                    weatherIcon = "wi wi-night-clear";
+                } else if(weatherID.toString().charAt(2) == 1) {
+                    weatherIcon = "wi wi-night-partly-cloudy";
+                } else {
+                    weatherIcon = "wi wi-cloudy";
+                }    
+            } 
             break;
     }
     $(".current i").removeClass().addClass(weatherIcon);
+    $("body").css("background-image", "url(css/images/thunderstorm.jpg)");
+}
 
+function isDayTime(timestamp, sunrise, sunset) {
+    forecastTime = timeConversion(new Date(timestamp));
+    sunriseTime = timeConversion(new Date(sunrise));
+    sunsetTime = timeConversion(new Date(sunset));
+    
+    return forecastTime > sunriseTime && forecastTime < sunsetTime;
 }
 
 function timeConversion(timestamp) {
     var date = new Date(timestamp*1000);
-    var hours = date.getHours();
+    var hours = "0" + date.getHours();
     var minutes = "0" + date.getMinutes();
-    var seconds = "0" + date.getSeconds();
 
-    return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    return hours.substr(-2) + ':' + minutes.substr(-2);
 }
