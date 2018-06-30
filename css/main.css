@@ -58,7 +58,7 @@ input[placeholder] {
 
 .current {
     position: absolute;
-    top: 13%;
+    top: 11%;
     left: 13%;
     width: 48%;
     background-color: rgba(49, 46, 46, 0.527);
@@ -97,6 +97,7 @@ input[placeholder] {
 
 .generalInfo i {
     font-size: 800%;
+    padding-top: 7%;
 }
 
 .line {
@@ -113,8 +114,8 @@ input[placeholder] {
 .details {
     position: absolute;
     width: 58%; 
-    left: 43%;
-    padding-top: 2%;
+    left: 41%;
+    padding-top: 7%;
 }
 
 .details div {
@@ -123,7 +124,11 @@ input[placeholder] {
 
 .details div p {
     display: inline-block;
-    margin-right: 6%;
+    margin-right: 2%;
+}
+
+#windIcon {
+    font-size: 175%;
 }
 
 
@@ -132,9 +137,9 @@ input[placeholder] {
 .forecast {
     display: inline-block;
     border: 10px;
-    width: 80%;
+    width: 61.5%;
     position: absolute;
-    top: 65%;
+    top: 68%;
     left: 13%;
 }
 
@@ -145,11 +150,17 @@ input[placeholder] {
     color: white;
     margin-left: 0.5%;
     text-align: center;
+    width: 12%;
 }
 
 .forecast div i {
     color: white;
-    font-size: 450%;
+    font-size: 400%;
+}
+
+.eachDayDescr {
+    margin-top: -7%;
+    margin-bottom: 10%;
 }
 
 .dayTemp p{
@@ -161,7 +172,8 @@ input[placeholder] {
 .hourly {
     position: absolute;
     left: 65%;
-    top: 13%;
+    top: 11%;
+    text-align: center;
 }
 
 .hourly div{
@@ -173,10 +185,19 @@ input[placeholder] {
     margin-bottom: 2%;
 }
 
-.hourly i {
-    font-size: 250%;
+.hourly p {
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .hourly p, i {
     display: inline-block;
+}
+
+.hour {
+    font-size: 150%;
+}
+
+.hourly i {
+    font-size: 250%;
 }

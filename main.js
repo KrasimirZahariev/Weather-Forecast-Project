@@ -38,20 +38,38 @@ function setCurrentDay(data) {
     var isDay = isDayTime(timestamp, sunrise, sunset);
     setWeatherIcon(weatherID, isDay);
 
-    $(".test").html(
-        "City: " + cityName + "</br>" +
-        "Country: " + country + "</br>" +
-        "weather: " + weather + "</br>" +
-        "id:" + weatherID + "</br>" +
-        "description: " + description + "</br>" +
-        "temp: " + temp + "</br>" +
-        "MaxTemp: " + maxTemp + "</br>" +
-        "minTemp: " + minTemp + "</br>" +
-        "time: " + timeConversion(new Date(timestamp)) + "</br>" +
-        "sunrise: " + timeConversion(new Date(sunrise)) + "</br>" +
-        "sunset: " + timeConversion(new Date(sunset)) + "</br>" +
-        "isDay:" + isDayTime(timestamp, sunrise, sunset) + "</br>"
-    );
+    // $(".test").html(
+    //     "City: " + cityName + "</br>" +
+    //     "Country: " + country + "</br>" +
+    //     "weather: " + weather + "</br>" +
+    //     "id:" + weatherID + "</br>" +
+    //     "description: " + description + "</br>" +
+    //     "temp: " + temp + "</br>" +
+    //     "MaxTemp: " + maxTemp + "</br>" +
+    //     "minTemp: " + minTemp + "</br>" +
+    //     "time: " + timeConversion(new Date(timestamp)) + "</br>" +
+    //     "sunrise: " + timeConversion(new Date(sunrise)) + "</br>" +
+    //     "sunset: " + timeConversion(new Date(sunset)) + "</br>" +
+    //     "isDay:" + isDayTime(timestamp, sunrise, sunset) + "</br>"
+    // );
+
+    // SETTING MAIN INFO
+    $(".location").html(cityName + ", " + country);
+    // TODO: set the date
+    $(".mainTemp").html(Math.floor(temp));
+    $(".mainDescr").html(description);
+    $("#windSpeed").html(windSpeed + " m/s");
+    $("#windIcon").removeClass().addClass(getWindIcon(windDir));
+    $("#pressure").html(pressure + " hPa");
+    $("#clouds").html(clouds + "%");
+    //TODO: fix the time
+    $("#sunrise").html(timeConversion(new Date(sunrise)));
+    $("#sunset").html(timeConversion(new Date(sunset)));
+
+    //SETTING INFO FOR THE CURRENT DAY IN THE 5 DAY FORECAST SECTION
+    $("#currentDayMinTemp").html(Math.floor(minTemp));
+    $("#currentDayMaxTemp").html(Math.floor(maxTemp));
+    $("#todayDescr").html(weather);
 }   
 
 function setWeatherIcon(weatherID, isDay) {
@@ -103,13 +121,14 @@ function setWeatherIcon(weatherID, isDay) {
             } 
             break;
     }
-    $(".current i").removeClass().addClass(weatherIcon);
+    $("#currentIcon").removeClass().addClass(weatherIcon);
+    $("#todayIcon").removeClass().addClass(weatherIcon);
 }
 
 function isDayTime(timestamp, sunrise, sunset) {
-    forecastTime = timeConversion(new Date(timestamp));
-    sunriseTime = timeConversion(new Date(sunrise));
-    sunsetTime = timeConversion(new Date(sunset));
+    var forecastTime = timeConversion(new Date(timestamp));
+    var sunriseTime = timeConversion(new Date(sunrise));
+    var sunsetTime = timeConversion(new Date(sunset));
     
     return forecastTime > sunriseTime && forecastTime < sunsetTime;
 }
@@ -120,4 +139,24 @@ function timeConversion(timestamp) {
     var minutes = "0" + date.getMinutes();
 
     return hours.substr(-2) + ':' + minutes.substr(-2);
+}
+
+function getWindIcon(windDir) {
+    if(windDir == 0) {
+        return "wi wi-direction-right";
+    } else if(windDir < 90) {
+        return "wi wi-direction-up-right";
+    } else if(windDir == 90) {
+        return "wi wi-direction-up";
+    } else if(windDir < 180 ) {
+        return "wi wi-direction-up-left";
+    } else if(windDir == 180 ) {
+        return "wi wi-direction-left";
+    } else if(windDir < 270) {
+        return "wi wi-direction-down-left";
+    } else if(windDir == 270) {
+        return "wi wi-direction-down";
+    } else if(windDir > 270 ) {
+        return "wi wi-direction-down-right";
+    } 
 }
