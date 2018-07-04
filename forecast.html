@@ -27,11 +27,11 @@
     <main>
         <div class="current">
             <div class="generalInfo">
-                <p class="location">Sofia, Bulgaria</p>
-                <p class="date">29.06</p>
+                <p class="location" id="mainLoc">Sofia, Bulgaria</p>
+                <p class="date" id="currentDate">29.06</p>
                 <i class="wi wi-night-sleet" id="currentIcon"></i>
-                <p class="mainTemp">25 C</p>
-                <p class="mainDescr">Sunny</p>
+                <p class="mainTemp" id="mainTemp">25 C</p>
+                <p class="mainDescr" id="mainDescr">Sunny</p>
             </div>
 
             <div class="line"> <!-- LINE --></div>
@@ -75,48 +75,48 @@
         </div>
         <div>
             <p id="day1">Monday</p>
-            <i class="wi wi-night-sleet"></i>
+            <i class="wi wi-night-sleet" id="dayIcon1"></i>
             <div class="dayTemp">
                 <p id="day1MinTemp">16</p>
                 <p id="day1MaxTemp">24</p>
             </div>
-            <p class= "eachDayDescr" id="day1Descr">Description</p>
+            <p class= "eachDayDescr" id="dayDescr1">Description</p>
         </div>
         <div>
             <p id="day2">Tuesday</p>
-            <i class="wi wi-night-sleet"></i>
+            <i class="wi wi-night-sleet" id="dayIcon2"></i>
             <div class="dayTemp">
                 <p id="day2MinTemp">16</p>
                 <p id="day2MaxTemp">24</p>
             </div>
-            <p class= "eachDayDescr" id="day2Descr">Description</p>
+            <p class= "eachDayDescr" id="dayDescr2">Description</p>
         </div>
         <div>
             <p id="day3">Wednesday</p>
-            <i class="wi wi-night-sleet"></i>
+            <i class="wi wi-night-sleet" id="dayIcon3"></i>
             <div class="dayTemp">
                 <p id="day3MinTemp">16</p>
                 <p id="day3MaxTemp">24</p>
             </div>
-            <p class= "eachDayDescr" id="day3Descr">Description</p>
+            <p class= "eachDayDescr" id="dayDescr3">Description</p>
         </div>
         <div>
             <p id="day4">Thursday</p>
-            <i class="wi wi-night-sleet"></i>
+            <i class="wi wi-night-sleet" id="dayIcon4"></i>
             <div class="dayTemp">
                 <p id="day4MinTemp">16</p>
                 <p id="day4MaxTemp">24</p>
             </div>
-            <p class= "eachDayDescr" id="day4Descr">Description</p>
+            <p class= "eachDayDescr" id="dayDescr4">Description</p>
         </div>
         <div>
             <p id="day5">Friday</p>
-            <i class="wi wi-night-sleet"></i>
+            <i class="wi wi-night-sleet" id="dayIcon5"></i>
             <div class="dayTemp">
                 <p id="day5MinTemp">16</p>
                 <p id="day5MaxTemp">24</p>
             </div>
-            <p class= "eachDayDescr" id="day5Descr">Description</p>
+            <p class= "eachDayDescr" id="dayDescr5">Description</p>
         </div>
     </div>
     
@@ -124,54 +124,63 @@
 
     <div class="hourly">
         <div>
-            <p class="hour">12:00</p>
-            <i class="wi wi-night-sleet"></i>
-            <p class="hourlyTemp">  25 C</p>
-            <p class="hourlyDescr">Light Rain</p>
+            <p class="hour" id="hour0">12:00</p>
+            <i class="wi wi-night-sleet" id="hourIcon0"></i>
+            <p class="hourlyTemp" id="hourTemp0">  25 C</p>
+            <p class="hourlyDescr" id ="hourDescr0">Light Rain</p>
         </div>
         <div>
-            <p class="hour">12:00</p>
-            <i class="wi wi-night-sleet"></i>
-            <p class="hourlyTemp">  25 C</p>
-            <p class="hourlyDescr">Light Rain</p>
+            <p class="hour" id="hour1">12:00</p>
+            <i class="wi wi-night-sleet" id="hourIcon1"></i>
+            <p class="hourlyTemp" id="hourTemp1">  25 C</p>
+            <p class="hourlyDescr" id ="hourDescr1">Light Rain</p>
         </div>
         <div>
-            <p class="hour">12:00</p>
-            <i class="wi wi-night-sleet"></i>
-            <p class="hourlyTemp">  25 C</p>
-            <p class="hourlyDescr">Light Rain</p>
+            <p class="hour" id="hour2">12:00</p>
+            <i class="wi wi-night-sleet" id="hourIcon2"></i>
+            <p class="hourlyTemp" id="hourTemp2">  25 C</p>
+            <p class="hourlyDescr" id ="hourDescr2">Light Rain</p>
         </div>
         <div>
-            <p class="hour">12:00</p>
-            <i class="wi wi-night-sleet"></i>
-            <p class="hourlyTemp">  25 C</p>
-            <p class="hourlyDescr">Light Rain</p>
+            <p class="hour" id="hour3">12:00</p>
+            <i class="wi wi-night-sleet" id="hourIcon3"></i>
+            <p class="hourlyTemp" id="hourTemp3">  25 C</p>
+            <p class="hourlyDescr" id ="hourDescr3">Light Rain</p>
         </div>
         <div>
-            <p class="hour">12:00</p>
-            <i class="wi wi-night-sleet"></i>
-            <p class="hourlyTemp">  25 C</p>
-            <p class="hourlyDescr">Light Rain</p>
+            <p class="hour" id="hour4">12:00</p>
+            <i class="wi wi-night-sleet" id="hourIcon4"></i>
+            <p class="hourlyTemp" id="hourTemp4">  25 C</p>
+            <p class="hourlyDescr" id ="hourDescr4">Light Rain</p>
         </div>
         <div>   
-            <p class="hour">12:00</p>
-            <i class="wi wi-night-sleet"></i>
-            <p class="hourlyTemp">  25 C</p>
-            <p class="hourlyDescr">Light Rain</p>
+            <p class="hour" id="hour5">12:00</p>
+            <i class="wi wi-night-sleet" id="hourIcon5"></i>
+            <p class="hourlyTemp" id="hourTemp5">  25 C</p>
+            <p class="hourlyDescr" id ="hourDescr5">Light Rain</p>
         </div>
         <div>   
-            <p class="hour">12:00</p>
-            <i class="wi wi-night-sleet"></i>
-            <p class="hourlyTemp">  25 C</p>
-            <p class="hourlyDescr">Light Rain</p>
+            <p class="hour" id="hour6">12:00</p>
+            <i class="wi wi-night-sleet" id="hourIcon6"></i>
+            <p class="hourlyTemp" id="hourTemp6">  25 C</p>
+            <p class="hourlyDescr" id ="hourDescr6">Light Rain</p>
         </div>
         <div>   
-            <p class="hour">12:00</p>
-            <i class="wi wi-night-sleet"></i>
-            <p class="hourlyTemp">  25 C</p>
-            <p class="hourlyDescr">Light Rain</p>
+            <p class="hour" id="hour7">12:00</p>
+            <i class="wi wi-night-sleet" id="hourIcon7"></i>
+            <p class="hourlyTemp" id="hourTemp7">  25 C</p>
+            <p class="hourlyDescr" id ="hourDescr7">Light Rain</p>
         </div>
     </div>
 </body>
+
+<script>
+	function activateAutocomplete() {
+		var input = document.getElementById('searchBox');
+		var autocomplete = new google.maps.places.Autocomplete(input);
+	}
+</script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARiZ40ctMPljbZYSsAJWdKdVZASyzR_0o&amp;language=en&amp;libraries=places&amp;callback=activateAutocomplete"></script>
 
 </html>
