@@ -59,7 +59,8 @@ input[placeholder] {
 
 .current {
     position: absolute;
-    top: 11%;
+    top: 17%;
+    bottom: 17%;
     left: 13%;
     width: 48%;
     background-color: rgba(49, 46, 46, 0.527);
@@ -75,21 +76,23 @@ input[placeholder] {
 }
 
 .location {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .date {
     margin-top: -5%;
+    font-size: 20px;
 }
 
 .mainTemp {
     font-size: 25px;
-    padding: 3%;
+    padding: 10%;
 }
 
 .mainDescr {
-    font-size: 18px;
-    margin-top: -12%;
+    font-size: 20px;
+    margin-top: -11%;
+    margin-bottom: 10%;
 }
 
 .generalInfo {
@@ -97,8 +100,8 @@ input[placeholder] {
 }
 
 .generalInfo i {
-    font-size: 800%;
-    padding-top: 7%;
+    font-size: 850%;
+    padding-top: 10%;
 }
 
 .line {
@@ -116,6 +119,7 @@ input[placeholder] {
     width: 58%; 
     left: 41%;
     padding-top: 7%;
+    font-size: 20px;
 }
 
 .details div {
@@ -172,7 +176,8 @@ input[placeholder] {
 .hourly {
     position: absolute;
     left: 65%;
-    top: 11%;
+    top: 17%;
+    bottom: 17%;
     text-align: center;
 }
 
@@ -199,4 +204,8 @@ input[placeholder] {
 
 .hourly i {
     font-size: 250%;
+}
+
+.hourlyTemp {
+    font-size: 20px;
 }

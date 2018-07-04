@@ -33,12 +33,9 @@ function setCurrentDay(data) {
     var lon = data.coord.lon;
     var lat = data.coord.lat;
     var timestamp = data.dt;
-    var weather = data.weather[0].main;
     var weatherID = data.weather[0].id;
     var description = data.weather[0].description; 
     var temp = data.main.temp;
-    var maxTemp = data.main.temp_max;
-    var minTemp = data.main.temp_min;
     var windSpeed = data.wind.speed;
     var windDir = data.wind.deg;
     var clouds = data.clouds.all;
@@ -51,18 +48,17 @@ function setCurrentDay(data) {
     localTime = getLocalTime(rawOffset, dstOffset);
     sunrise = timeConversion(sunrise, rawOffset, dstOffset);
     sunset = timeConversion(sunset, rawOffset, dstOffset);
+    var date = getDate(timestamp);
     var isDay = isDayTime(localTime, sunrise, sunset);
 
     var weatherIcon = setWeatherIcon(weatherID, isDay);
     setBackground(weatherID, isDay);
-
-    var date = getDate(timestamp);
     
     // SETTING MAIN INFO
     $("#mainLoc").html(cityName + ", " + country);
     $("#currentDate").html(date +", " + localTime);
     $("#currentIcon").removeClass().addClass(weatherIcon);
-    $("#mainTemp").html(Math.floor(temp));
+    $("#mainTemp").html(Math.floor(temp) + "°C");
     $("#mainDescr").html(description);
     $("#windSpeed").html(windSpeed + " m/s");
     $("#windIcon").removeClass().addClass(getWindIcon(windDir));
@@ -71,13 +67,7 @@ function setCurrentDay(data) {
     $("#sunrise").html(sunrise);
     $("#sunset").html(sunset);
 
-    //SETTING INFO FOR THE CURRENT DAY IN THE 5 DAY FORECAST SECTION
-    $("#todayIcon").removeClass().addClass(weatherIcon);
-    $("#currentDayMinTemp").html(Math.floor(minTemp));
-    $("#currentDayMaxTemp").html(Math.floor(maxTemp));
-    $("#todayDescr").html(weather);
-
-
+    // Hourly FORECAST REQUEST
     $location = cityName + "," + country;
     $.ajax({
         url: "http://api.openweathermap.org/data/2.5/forecast?q=" + $location + 
@@ -85,7 +75,7 @@ function setCurrentDay(data) {
         type: "GET",
         dataType: "jsonp",
         success: function(forecastData) {
-            setForecastData(forecastData);  
+            setHourly(forecastData);  
         }
     });
 }
@@ -247,44 +237,6 @@ function getWindIcon(windDir) {
     } 
 }
 
-function setForecastData(forecastData) {
-    setNextDays(forecastData);
-    setHourly(forecastData);
-}
-
-// NEXT DAYS
-
-function setNextDays(forecastData) {
-    var forecast = forecastData.list;
-    
-    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", 
-                "Thursday", "Friday", "Saturday"];
-
-    var timestamp = forecast[0].dt;
-    var date = new Date(+((timestamp) + +(rawOffset))*1000);
-    var currentDay = date.getDay() + 1;
-    for(var i = 1; i < 6; i++) {
-        $("#day" + i).html(days[currentDay]);
-        currentDay++;
-        if(currentDay > 6) {
-            currentDay = 0;
-        }
-    }
-
-    // var currentDate = date.getDate();
-    // var dayCounter = 0;
-    // for(var i = 0; i < forecast.length; i++) {
-    //     if(forecast[i].dt !== currentDate) {
-    //         weatherID = forecast[i].weather[0].id;
-    //         icon = setWeatherIcon(weatherID, false)
-    //         $(("#day" + i)).removeClass().addClass(icon);
-    //         dayCounter++;
-    //         currentDate = new Date(+((forecast[i].dt) + +(rawOffset))*1000);
-    //     }    
-    // }
-    
-}
-
 // HOURLY
 
 function setHourly(forecastData) {
@@ -300,7 +252,7 @@ function setHourly(forecastData) {
         $(("#hourIcon" + i)).removeClass().addClass(icon);
 
         temp = Math.floor(forecast[i].main.temp);
-        $("#hourTemp" + i).html(temp);
+        $("#hourTemp" + i).html(temp + "°C, ");
 
         weather = forecast[i].weather[0].main;
         $("#hourDescr" + i).html(weather);
