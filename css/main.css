@@ -135,42 +135,6 @@ input[placeholder] {
     font-size: 175%;
 }
 
-
-/* 5 DAYS */
-
-.forecast {
-    display: inline-block;
-    border: 10px;
-    width: 61.5%;
-    position: absolute;
-    top: 68%;
-    left: 13%;
-}
-
-.forecast > div {
-    background-color: rgba(49, 46, 46, 0.527);
-    border-radius: 20px;
-    display: inline-block;
-    color: white;
-    margin-left: 0.5%;
-    text-align: center;
-    width: 12%;
-}
-
-.forecast div i {
-    color: white;
-    font-size: 400%;
-}
-
-.eachDayDescr {
-    margin-top: -7%;
-    margin-bottom: 10%;
-}
-
-.dayTemp p{
-    display: inline-block;
-}
-
 /* HOURLY */
 
 .hourly {
