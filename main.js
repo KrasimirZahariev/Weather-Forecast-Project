@@ -19,7 +19,8 @@ $(document).ready(function() {
             type: "GET",
             dataType: "jsonp",
             success: function(data) {
-                setCurrentDay(data);       
+                setCurrentDay(data);
+                $(".content").css("display", "block");       
             }
         });
     });

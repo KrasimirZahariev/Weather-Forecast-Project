@@ -1,9 +1,13 @@
 body {
-    background-image: url("images/night-cloudy.jpg");                     
+    background-image: url("images/sunny.jpg");                     
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+}
+
+.content {
+    display: none;
 }
 
 /* SERACH BAR */
